@@ -1,13 +1,24 @@
-import axios from "axios";
-import {LOGIN_USER} from './types';
+import {LOGIN_USER , REGISTER_USER} from './types';
+import Axios from "axios";
 
 export function loginUser(dataToSubmit) {
 
-    const request = axios.post('/api/users/login', dataToSubmit)
+    const request = Axios.post('/api/users/login', dataToSubmit)
         .then(response => response.data)
 
     return {
         type: LOGIN_USER,
+        payload: request
+    }
+}
+
+export function registerUser(dataToSubmit) {
+
+    const request = Axios.post('/api/users/register', dataToSubmit)
+        .then(response => response.data)
+
+    return {
+        type: REGISTER_USER,
         payload: request
     }
 }
