@@ -95,8 +95,6 @@ app.get('/api/users/auth', auth , (req, res) => {
         image : req.user.image
     })
 
-
-
 })
 
 
