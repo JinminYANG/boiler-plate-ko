@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-
 import {
     BrowserRouter as Router, Switch, Route, Link
-} from "react-router-dom";
-import LandingPage from "./components/views/LandingPage/LandingPage";
-import LoginPage from "./components/views/LoginPage/LoginPage";
-import RegisterPage from "./components/views/RegisterPage/RegisterPage";
+} from "react-router-dom"; // 페이지 라우팅을 위해 가져옴
+import LandingPage from "./components/views/LandingPage/LandingPage";    // 페이지 라우팅을 위해 가져옴
+import LoginPage from "./components/views/LoginPage/LoginPage";          // 페이지 라우팅을 위해 가져옴
+import RegisterPage from "./components/views/RegisterPage/RegisterPage"; // 페이지 라우팅을 위해 가져옴
 import Auth from './hoc/auth';
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
         */}
             <Switch>
                 <Route exact path="/" component={Auth(LandingPage, null)}/>
-
+                //path는 이동되는 페이지를 말함 (주소창)
                 <Route exact path="/login" component={Auth(LoginPage, false)}/>
 
                 <Route exact path="/register" component={Auth(RegisterPage, false)}/>

@@ -4,9 +4,9 @@ import {withRouter} from "react-router-dom"
 
 function LandingPage(props) {
 
-    useEffect(() => {
-        axios.get('/api/hello')
-            .then(response => console.log(response.data))
+    useEffect(() => {  // class component에서 데이터를 가져오거나 하는 componentDidMount()와 같은 기능 (라이프사이클이라고 함)
+        axios.get('/api/hello') // 이거를 서버로 보냄
+            .then(response => console.log(response.data)) // 서버에서 콜백받은 데이터를 처리
     }, [])
 
     const onClickHandler = () => {

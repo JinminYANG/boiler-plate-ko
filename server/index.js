@@ -31,7 +31,9 @@ app.get('/', (req, res) => {
 app.get('/api/hello', (req, res) => {
     res.send("안녕하세요 ~")
 })
-
+// 클라이언트(LandingPage.js)에서 보낸 요청을 받는 부분
+// req는 받은 요청
+// res는 콜백 (프론트로 다시 주는 것)
 
 app.post('/api/users/register', (req, res) => {
 
