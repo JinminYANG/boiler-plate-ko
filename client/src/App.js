@@ -21,7 +21,7 @@ function App() {
         */}
             <Switch>
                 <Route exact path="/" component={Auth(LandingPage, null)}/>
-                //path는 이동되는 페이지를 말함 (주소창)
+                //path는 이동되는 페이지를 말함 (주소창에 입력하면 페이지가 이동됨)
                 <Route exact path="/login" component={Auth(LoginPage, false)}/>
 
                 <Route exact path="/register" component={Auth(RegisterPage, false)}/>

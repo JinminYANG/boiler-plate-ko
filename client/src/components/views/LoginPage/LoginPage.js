@@ -6,35 +6,33 @@ import { withRouter } from "react-router-dom"
 
 function LoginPage(props) {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); // 'react-redux'의 내장함수 (Action 기능)
 
-    const [Email, setEmail] = useState("")
-    const [Password, setPassword] = useState("")
+    const [Email, setEmail] = useState("")     // email value에 집어넣을 state / initialState는 초기값
+    const [Password, setPassword] = useState("")  // password value에 집어넣을 state
 
     const onEmailHandler = (event) => {
-        setEmail(event.currentTarget.value)
+        setEmail(event.currentTarget.value)  // email의 state를 바꿔주는 기능
     }
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
     const onSubmitHandler = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // 기존의 submit이 가지고 있는 기능(페이지 새로고침)을 차단해줌
 
         let body = {
             email : Email,
             password : Password
         }
 
-        dispatch(loginUser(body))
+        dispatch(loginUser(body)) // dispatch를 이용해 action(loginUser)을 취함 -> /_action/user_action.js로 전달
             .then(response => {
-                if(response.payload.loginSuccess) {
-                    props.history.push('/')
-                }else{
+                if(response.payload.loginSuccess) {   // 로그인 성공시
+                    props.history.push('/')   // 리액트에서 페이지 이동시키는 방법
+                }else{   // 로그인 실패시
                     alert('Error"')
                 }
             })
-
-
     }
 
 
@@ -44,14 +42,15 @@ function LoginPage(props) {
         }} >
 
             <form style={{ display: 'flex' , flexDirection : 'column' }}
-            onSubmit={onSubmitHandler}
+            onSubmit={onSubmitHandler} // button을 눌렀을 때 기능을 주기위해
             >
                 <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
+                <input type="email" value={Email} onChange={onEmailHandler} /> 
+                // onChange는 input에 값을 입력할 수 있게 해줌
                 <label>Password</label>
                 <input type="password" value={Password} onChange={onPasswordHandler} />
                 <br />
-                <button>Login</button>
+                <button type="submit">Login</button>
             </form>
 
 
