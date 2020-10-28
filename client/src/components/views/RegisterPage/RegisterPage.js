@@ -14,7 +14,6 @@ function RegisterPage(props) {
     const [ConfirmPassword, setConfirmPassword] = useState("")
 
 
-
     const onEmailHandler = (event) => {
         setEmail(event.currentTarget.value)
     }
@@ -52,8 +51,6 @@ function RegisterPage(props) {
                     alert("Failed to sign up")
                 }
             })
-
-
     }
 
     return (
@@ -77,7 +74,7 @@ function RegisterPage(props) {
                 <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
 
                 <br />
-                <button>회원가입</button>
+                <button type="submit">회원가입</button>
             </form>
 
 

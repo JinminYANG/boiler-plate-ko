@@ -9,7 +9,7 @@ function LandingPage(props) {
             .then(response => console.log(response.data)) // 서버에서 콜백받은 데이터를 처리
     }, [])
 
-    const onClickHandler = () => {
+    const onClickHandler = () => { // 로그아웃 버튼을 클릭했을 때의 기능
         axios.get('/api/users/logout')
             .then(response => {
                 if (response.data.success) {
@@ -29,4 +29,4 @@ function LandingPage(props) {
         </div>)
 }
 
-export default withRouter(LandingPage)
+export default withRouter(LandingPage) // props.history를 이용하려면 이렇게 써야함
